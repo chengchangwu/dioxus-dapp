@@ -14,10 +14,13 @@ fn app(cx: Scope) -> Element {
         style {
             vec![STYLES]
         }
-        HomeView {
-            pkg: pkg,
-            wallet: wallet,
+        div {
+            class: "flex flex-col h-screen",
+            HomeView {
+                pkg: pkg,
+                wallet: wallet,
+            }
+            Footer {}
         }
-        Footer {}
     })
 }
