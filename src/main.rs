@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use dioxus_dapp::{home::HomeView, Package, Wallet};
+use dioxus_dapp::{footer::Footer, home::HomeView, Package, Wallet};
 
 static STYLES: &'static str = include_str!("../output.css");
 
@@ -14,9 +14,10 @@ fn app(cx: Scope) -> Element {
         style {
             vec![STYLES]
         }
-        HomeView{
+        HomeView {
             pkg: pkg,
             wallet: wallet,
         }
+        Footer {}
     })
 }

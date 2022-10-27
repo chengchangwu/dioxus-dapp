@@ -1,4 +1,5 @@
 pub mod airdrop;
+pub mod footer;
 pub mod home;
 
 #[derive(PartialEq)]
