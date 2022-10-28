@@ -1,6 +1,9 @@
-pub mod airdrop;
-pub mod footer;
-pub mod home;
+pub mod components;
+pub mod views;
+pub mod wallets;
+
+pub use components::{airdrop, footer};
+pub use views::home;
 
 #[derive(PartialEq)]
 pub struct Package<'a> {

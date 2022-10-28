@@ -1,9 +1,13 @@
 use dioxus::prelude::*;
-use dioxus_dapp::{footer::Footer, home::HomeView, Package, Wallet};
+use dioxus_dapp::{footer::Footer, home::HomeView, wallets, Package, Wallet};
 
 static STYLES: &'static str = include_str!("../output.css");
 
 fn main() {
+    wasm_logger::init(wasm_logger::Config::default());
+    let window = wallets::window().unwrap();
+    let solana = window.solana();
+    log::info!("Solano {solana:?}");
     dioxus::web::launch(app);
 }
 
