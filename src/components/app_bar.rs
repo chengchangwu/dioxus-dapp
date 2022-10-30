@@ -3,15 +3,19 @@ use dioxus::prelude::*;
 
 #[allow(non_snake_case)]
 pub fn AppBar(cx: Scope) -> Element {
-    let (auto_connect, set_auto_connect) = use_auto_connect();
+    // TODO: use_local_storage instread of use_state?
+    let auto_connect = use_state(&cx, || false);
     cx.render(rsx! {
         div {
             class: "navbar flex flex-row md:mb-2 shadow-lg bg-neutral text-neutral-content",
+            // TODO:
+            // TODO:
             // Wallet & Settings
             div {
                 class: "navbar-end",
                 wallets::ui::MultiButton {
-                    class: "btn btn-ghost mr-4",
+                    // TODO
+                    // class: "btn btn-ghost mr-4",
                 }
                 div {
                     class: "dropdown dropdown-end",
@@ -47,14 +51,15 @@ pub fn AppBar(cx: Scope) -> Element {
                             class: "form-control",
                             label {
                                 class: "cursor-pointer label",
-                                a { auto_connect }
+                                a { "AutoConnect" }
                                 input {
                                     "type": "checkbox",
-                                    // checked: auto_connect,
-                                    // onchange: |e| set_auto_connect(e.target.checked),
+                                    checked: "{auto_connect}",
+                                    onchange: move |_| { *auto_connect.make_mut() = false },
                                     class: "toggle",
                                 }
                             }
+                            // TODO
                             // NetworkSwitcher {}
                         }
                     }
