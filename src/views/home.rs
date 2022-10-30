@@ -1,4 +1,4 @@
-use crate::airdrop::RequestAirdrop;
+use crate::components::airdrop::RequestAirdrop;
 use crate::{Package, Wallet};
 use dioxus::prelude::*;
 
