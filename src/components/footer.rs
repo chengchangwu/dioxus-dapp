@@ -130,7 +130,18 @@ pub fn Footer(cx: Scope) -> Element {
                             href: "https://solana.com/",
                             target: "_blank",
                             class: "text-white text-base font-bold hover:text-primary-dark transition-all duration-200",
-                            "Solana & Dioxus"
+                            "Solana"
+                        }
+                        span {
+                            class: "px-0.5",
+                             "&"
+                        }
+                        a {
+                            rel: "noreferrer",
+                            href: "https://dioxuslabs.com/",
+                            target: "_blank",
+                            class: "text-white text-base font-bold hover:text-primary-dark transition-all duration-200",
+                            "Dioxus"
                         }
                     }
                 }
