@@ -30,7 +30,7 @@ pub fn HomeView<'a>(cx: Scope<'a, HomeViewProps<'a>>) -> Element<'a> {
                     p {
                         "Simply the fastest way to get started."
                     }
-                    "Rust, dioxus, tailwind, wallet, web3.js, and more."
+                    "Rust, dioxus, tailwind, wallet, web3, and more."
                 }
                 div {
                     class: "max-w-md mx-auto mockup-code bg-primary p-6 my-2",
