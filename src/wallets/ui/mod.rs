@@ -1,3 +1,3 @@
-mod multi_button;
+mod wallet_multi_button;
 
-pub use multi_button::MultiButton;
+pub use wallet_multi_button::WalletMultiButton;
