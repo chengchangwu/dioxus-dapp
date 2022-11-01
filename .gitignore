@@ -2,7 +2,7 @@
 /Cargo.lock
 /dist
 /node_modules
-/bundle.js
-/bundle.js.map
+/components.js
+/components.js.map
 /output.css
 /package-lock.json
