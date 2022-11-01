@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
 function Counter() {
@@ -14,6 +14,11 @@ function Counter() {
 }
 
 export function render_counter() {
-    const root = createRoot(document.getElementById('root'));
-    root.render(<App />);
+    let el = document.getElementById('root');
+    if (el != null) {
+        const root = createRoot(el);
+        root.render(<Counter />);
+    } else {
+        console.log("Failed to get element root");
+    }
 }
