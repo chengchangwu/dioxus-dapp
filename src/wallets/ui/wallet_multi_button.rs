@@ -1,5 +1,6 @@
-use super::super::render_counter;
 use dioxus::prelude::*;
+
+use crate::wallets::detect_brave_wallet;
 
 #[allow(non_snake_case)]
 pub fn WalletMultiButton(cx: Scope) -> Element {
@@ -8,10 +9,10 @@ pub fn WalletMultiButton(cx: Scope) -> Element {
     let active = use_state(&cx, || false);
     let aria_expanded = if **active { "true" } else { "false" };
     let button_style = format!("pointerEvents: {}", if **active { "none" } else { "auto" },);
-    let counter = use_state(&cx, || render_counter());
+    let detected = use_state(&cx, || detect_brave_wallet());
     cx.render(rsx! {
         div {
-            dangerous_inner_html: "{counter}",
+            "detected brave? {detected}"
         }
         div {
             class: "wallet-adapter-dropdown",

@@ -29,7 +29,7 @@ pub fn window() -> Option<Window> {
     js_sys::global().dyn_into::<Window>().ok()
 }
 
-#[wasm_bindgen(module = "/bundle.js")]
+#[wasm_bindgen(module = "/components.js")]
 extern "C" {
-    pub fn render_counter() -> String;
+    pub fn detect_brave_wallet() -> bool;
 }
