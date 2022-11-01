@@ -13,7 +13,14 @@ interface BraveWallet {
 }
 
 interface BraveWindow extends Window {
-    braveSolana?: BraveWallet;
+    solana?: BraveWallet;
 }
 
-declare const brave_window: BraveWindow;
+declare const window: BraveWindow;
+
+export function detect_brave_wallet() {
+    if (window.solana?.isBraveWallet) {
+        return true;
+    }
+    return false;
+}
