@@ -1,3 +1,4 @@
+use super::super::render_counter;
 use dioxus::prelude::*;
 
 #[allow(non_snake_case)]
@@ -7,7 +8,11 @@ pub fn WalletMultiButton(cx: Scope) -> Element {
     let active = use_state(&cx, || false);
     let aria_expanded = if **active { "true" } else { "false" };
     let button_style = format!("pointerEvents: {}", if **active { "none" } else { "auto" },);
+    let counter = use_state(&cx, || render_counter());
     cx.render(rsx! {
+        div {
+            dangerous_inner_html: "{counter}",
+        }
         div {
             class: "wallet-adapter-dropdown",
             button {

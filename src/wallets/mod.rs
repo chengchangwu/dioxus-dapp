@@ -28,3 +28,8 @@ pub fn window() -> Option<Window> {
 
     js_sys::global().dyn_into::<Window>().ok()
 }
+
+#[wasm_bindgen(module = "/bundle.js")]
+extern "C" {
+    pub fn render_counter() -> String;
+}

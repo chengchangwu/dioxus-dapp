@@ -13,5 +13,7 @@ function Counter() {
     );
 }
 
-const root = createRoot(document.getElementById('root'));
-root.render(<App />);
+export function render_counter() {
+    const root = createRoot(document.getElementById('root'));
+    root.render(<App />);
+}
