@@ -2,6 +2,7 @@ use js_sys::Object;
 use wasm_bindgen::prelude::*;
 use web_sys::EventTarget;
 
+pub mod adapters;
 pub mod ui;
 
 #[wasm_bindgen]
@@ -27,9 +28,4 @@ pub fn window() -> Option<Window> {
     use wasm_bindgen::JsCast;
 
     js_sys::global().dyn_into::<Window>().ok()
-}
-
-#[wasm_bindgen(module = "/components.js")]
-extern "C" {
-    pub fn detect_brave_wallet() -> bool;
 }

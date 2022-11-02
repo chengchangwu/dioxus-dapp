@@ -9,6 +9,7 @@ edition = "2021"
 dioxus = { version = "0.2.4", features = ["web"] }
 log = "0.4.6"
 wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
 js-sys = "0.3"
 
 # WebAssembly Debug

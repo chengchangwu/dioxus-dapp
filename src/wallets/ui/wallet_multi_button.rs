@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
-use crate::wallets::detect_brave_wallet;
+use crate::wallets::window;
 
 #[allow(non_snake_case)]
 pub fn WalletMultiButton(cx: Scope) -> Element {
@@ -9,10 +9,16 @@ pub fn WalletMultiButton(cx: Scope) -> Element {
     let active = use_state(&cx, || false);
     let aria_expanded = if **active { "true" } else { "false" };
     let button_style = format!("pointerEvents: {}", if **active { "none" } else { "auto" },);
-    let detected = use_state(&cx, || detect_brave_wallet());
+    let detected = use_state(&cx, || {
+        window()
+            .expect("No window object")
+            .solana()
+            .and_then(|s| s.is_brave_wallet().then_some(true))
+            .is_some()
+    });
     cx.render(rsx! {
         div {
-            "detected brave? {detected}"
+            "detected wallet? {detected}"
         }
         div {
             class: "wallet-adapter-dropdown",
