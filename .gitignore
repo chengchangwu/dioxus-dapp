@@ -4,5 +4,4 @@
 /node_modules
 /output.css
 /package-lock.json
-/components.js
-/components.js.map
+/pkg
