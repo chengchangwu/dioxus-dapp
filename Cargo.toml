@@ -3,7 +3,8 @@ name = "dioxus-dapp"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[features]
+default = ["console_error_panic_hook"]
 
 [dependencies]
 dioxus = { version = "0.2.4", features = ["web"] }
@@ -14,10 +15,16 @@ js-sys = "0.3"
 
 # WebAssembly Debug
 wasm-logger = "0.2.0"
-console_error_panic_hook = "0.1.7"
+console_error_panic_hook = { version = "0.1.7", optional = true }
 
 [dependencies.web-sys]
 version = "0.3.4"
 features = [
   'Window',
 ]
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3.13"
+
+[profile.release]
+opt-level = "s"
