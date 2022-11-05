@@ -27,11 +27,6 @@ pub fn bootstrap() -> Result<(), JsValue> {
     Ok(())
 }
 
-#[wasm_bindgen]
-pub fn add(a: u32, b: u32) -> u32 {
-    a + b
-}
-
 #[derive(PartialEq)]
 pub struct Package<'a> {
     pub version: &'a str,
@@ -44,6 +39,7 @@ pub struct Wallet {
 
 static STYLES: &'static str = include_str!("../output.css");
 
+#[wasm_bindgen]
 pub fn main() {
     wasm_logger::init(wasm_logger::Config::default());
     let window = wallets::window().unwrap();
