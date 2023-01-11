@@ -35,7 +35,7 @@ fn App(cx: Scope) -> Element {
         }
         div {
             class: "flex flex-col h-screen",
-            // AppBar {}
+            AppBar {}
             HomeView {
                 pkg: pkg,
                 wallet: wallet,

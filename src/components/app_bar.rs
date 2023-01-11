@@ -136,13 +136,13 @@ pub fn AppBar(cx: Scope) -> Element {
                     }
                 }
             }
-            // Wallet & Settings
+            // // Wallet & Settings
             div {
                 class: "navbar-end",
-                wallets::ui::WalletMultiButton {
-                    // TODO
-                    // class: "btn btn-ghost mr-4",
-                }
+            //     wallets::ui::WalletMultiButton {
+            //         // TODO
+            //         // class: "btn btn-ghost mr-4",
+            //     }
                 div {
                     class: "dropdown dropdown-end",
                     div {
