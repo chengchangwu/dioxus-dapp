@@ -1,6 +1,6 @@
-use super::Link;
 use crate::wallets;
 use dioxus::prelude::*;
+use dioxus_router::Link;
 
 #[allow(non_snake_case)]
 pub fn AppBar(cx: Scope) -> Element {
@@ -117,21 +117,16 @@ pub fn AppBar(cx: Scope) -> Element {
                 class: "hidden md:inline md:navbar-center",
                 div {
                     class: "flex items-stretch",
-                    // TODO
                     Link {
-                        href: "/",
-                        a {
-                            class: "btn btn-ghost btn-sm rounded-btn",
-                            "Home"
-                        }
+                        class: "btn btn-ghost btn-sm rounded-btn",
+                        to: "/",
+                        "Home"
                     }
                     // TODO
                     Link {
-                        href: "/basics",
-                        a {
-                            class: "btn btn-ghost btn-sm rounded-btn",
-                            "Basics"
-                        }
+                        class: "btn btn-ghost btn-sm rounded-btn",
+                        to: "/basics",
+                        "Basics"
                     }
                 }
             }

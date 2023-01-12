@@ -1,4 +1,5 @@
 pub mod components;
+pub mod pages;
 pub mod views;
 pub mod wallets;
 

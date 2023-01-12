@@ -3,9 +3,11 @@
 use dioxus::prelude::*;
 use dioxus_dapp::{
     components::{AppBar, ContentContainer, Footer},
+    pages::Basics,
     views::home::HomeView,
     Package, Wallet,
 };
+use dioxus_router::{Route, Router};
 
 static STYLES: &'static str = include_str!("../output.css");
 
@@ -22,27 +24,48 @@ fn main() {
     //         s.is_brave_wallet(),
     //     );
     // }
-    dioxus_web::launch(App);
+    dioxus_web::launch(app);
 }
 
 // create a component that renders a div with the text "Hello, world!"
-fn App(cx: Scope) -> Element {
-    let pkg = Package { version: "0.1.0" };
-    let wallet = Wallet { balance: 0 };
+fn app(cx: Scope) -> Element {
     cx.render(rsx! {
         style {
             STYLES
         }
-        div {
-            class: "flex flex-col h-screen",
-            AppBar {}
-            ContentContainer {
-                HomeView {
-                    pkg: pkg,
-                    wallet: wallet,
+        Router {
+            div {
+                class: "flex flex-col h-screen",
+                AppBar {}
+                ContentContainer {
+                    Route {
+                        to: "/",
+                        self::homepage {}
+                    }
+                    Route {
+                        to: "/basics",
+                        self::basics {}
+                    }
                 }
+                Footer {}
             }
-            Footer {}
         }
+    })
+}
+
+fn homepage(cx: Scope) -> Element {
+    let pkg = Package { version: "0.1.0" };
+    let wallet = Wallet { balance: 0 };
+    cx.render(rsx! {
+        HomeView {
+            pkg: pkg,
+            wallet: wallet,
+        }
+    })
+}
+
+fn basics(cx: Scope) -> Element {
+    cx.render(rsx! {
+        Basics {}
     })
 }

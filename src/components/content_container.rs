@@ -1,5 +1,5 @@
-use super::Link;
 use dioxus::prelude::*;
+use dioxus_router::Link;
 
 #[derive(Props)]
 pub struct ContentContainerProps<'a> {
@@ -35,17 +35,13 @@ pub fn ContentContainer<'a>(cx: Scope<'a, ContentContainerProps<'a>>) -> Element
                     }
                     li {
                         Link {
-                            href: "/",
-                        }
-                        a {
+                            to: "/",
                             "Home"
                         }
                     }
                     li {
                         Link {
-                            href: "/basics",
-                        }
-                        a {
+                            to: "/basics",
                             "Basics"
                         }
                     }
