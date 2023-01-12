@@ -2,7 +2,7 @@
 // import the prelude to get access to the `rsx!` macro and the `Scope` and `Element` types
 use dioxus::prelude::*;
 use dioxus_dapp::{
-    components::{app_bar::AppBar, footer::Footer},
+    components::{AppBar, ContentContainer, Footer},
     views::home::HomeView,
     Package, Wallet,
 };
@@ -36,9 +36,11 @@ fn App(cx: Scope) -> Element {
         div {
             class: "flex flex-col h-screen",
             AppBar {}
-            HomeView {
-                pkg: pkg,
-                wallet: wallet,
+            ContentContainer {
+                HomeView {
+                    pkg: pkg,
+                    wallet: wallet,
+                }
             }
             Footer {}
         }

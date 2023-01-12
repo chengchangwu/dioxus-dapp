@@ -1,4 +1,4 @@
-use super::link::Link;
+use super::Link;
 use crate::wallets;
 use dioxus::prelude::*;
 
