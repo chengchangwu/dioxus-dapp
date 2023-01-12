@@ -13,8 +13,7 @@ pub fn AppBar(cx: Scope) -> Element {
             div {
                 class: "navbar-start",
                 label {
-                    // TODO:
-                    // htmlFor: "my-drawer",
+                    r#for: "my-drawer",
                     class: "btn btn-square btn-ghost",
                     svg {
                         class: "inline-block w-6 h-6 stroke-current",

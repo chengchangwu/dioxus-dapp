@@ -12,7 +12,7 @@ pub fn ContentContainer<'a>(cx: Scope<'a, ContentContainerProps<'a>>) -> Element
         div {
             class: "flex-1 drawer h-52",
             input {
-                // id: "my-drawer",
+                id: "my-drawer",
                 class: "grow drawer-toggle",
                 r#type: "checkbox",
             }
@@ -23,7 +23,7 @@ pub fn ContentContainer<'a>(cx: Scope<'a, ContentContainerProps<'a>>) -> Element
             div {
                 class: "drawer-side",
                 label {
-                    // html_for: "my-drawer",
+                    r#for: "my-drawer",
                     class: "drawer-overlay",
                 }
                 ul {
