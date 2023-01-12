@@ -19,7 +19,7 @@ pub fn HomeView<'a>(cx: Scope<'a, HomeViewProps<'a>>) -> Element<'a> {
                 class: "md:hero-content flex flex-col",
                 h1 {
                     class: "text-center text-5xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-tr from-[#9945FF] to-[#14F195]",
-                    "Scaffold Lite"
+                    "Dioxus dApp"
                     span {
                         class: "text-sm font-normal align-top text-slate-700",
                         "v{pkg.version}"
