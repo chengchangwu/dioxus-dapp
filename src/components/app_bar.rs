@@ -1,4 +1,4 @@
-use crate::wallets;
+use crate::{components::NetworkSwitcher, wallets};
 use dioxus::prelude::*;
 use dioxus_router::Link;
 
@@ -122,7 +122,6 @@ pub fn AppBar(cx: Scope) -> Element {
                         to: "/",
                         "Home"
                     }
-                    // TODO
                     Link {
                         class: "btn btn-ghost btn-sm rounded-btn",
                         to: "/basics",
@@ -162,25 +161,24 @@ pub fn AppBar(cx: Scope) -> Element {
                             }
                         }
                     }
-                }
-                ul {
-                    tabindex: "0",
-                    class: "p-2 shadow menu dropdown-content bg-base-100 rounded-box sm:w-52",
-                    li {
-                        div {
-                            class: "form-control",
-                            label {
-                                class: "cursor-pointer label",
-                                a { "AutoConnect" }
-                                input {
-                                    "type": "checkbox",
-                                    checked: "{auto_connect}",
-                                    onchange: move |_| { *auto_connect.make_mut() = false },
-                                    class: "toggle",
+                    ul {
+                        tabindex: "0",
+                        class: "p-2 shadow menu dropdown-content bg-base-100 rounded-box sm:w-52",
+                        li {
+                            div {
+                                class: "form-control",
+                                label {
+                                    class: "cursor-pointer label",
+                                    a { "AutoConnect" }
+                                    input {
+                                        "type": "checkbox",
+                                        checked: "{auto_connect}",
+                                        onchange: move |_| { *auto_connect.make_mut() = false },
+                                        class: "toggle",
+                                    }
                                 }
+                                NetworkSwitcher {}
                             }
-                            // TODO
-                            // NetworkSwitcher {}
                         }
                     }
                 }
