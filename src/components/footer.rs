@@ -29,27 +29,27 @@ pub fn Footer(cx: Scope) -> Element {
                                 gradientUnits: "userSpaceOnUse",
                                 stop {
                                     offset: "0.08",
-                                    stop_color: "#9945FF",
+                                    "stop-color": "#9945FF",
                                 }
                                 stop {
                                     offset: "0.3",
-                                    stop_color: "#8752F3",
+                                    "stop-color": "#8752F3",
                                 }
                                 stop {
                                     offset: "0.5",
-                                    stop_color: "#5497D5",
+                                    "stop-color": "#5497D5",
                                 }
                                 stop {
                                     offset: "0.6",
-                                    stop_color: "#43B4CA",
+                                    "stop-color": "#43B4CA",
                                 }
                                 stop {
                                     offset: "0.72",
-                                    stop_color: "#28E0B9",
+                                    "stop-color": "#28E0B9",
                                 }
                                 stop {
                                     offset: "0.97",
-                                    stop_color: "#19FB9B",
+                                    "stop-color": "#19FB9B",
                                  }
                             }
                         }
