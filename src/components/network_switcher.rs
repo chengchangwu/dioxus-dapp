@@ -1,4 +1,4 @@
-use crate::{contexts::NetworkConfiguration, hooks::use_local_storage};
+use crate::{contexts::NetworkConfiguration, wallets::hooks::use_local_storage};
 use dioxus::prelude::*;
 
 #[allow(non_snake_case)]

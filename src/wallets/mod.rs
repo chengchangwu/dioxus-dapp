@@ -3,6 +3,7 @@ use wasm_bindgen::prelude::*;
 use web_sys::EventTarget;
 
 pub mod adapters;
+pub mod hooks;
 pub mod ui;
 
 #[wasm_bindgen]

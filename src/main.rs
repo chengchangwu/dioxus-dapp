@@ -4,9 +4,8 @@ use dioxus::prelude::*;
 use dioxus_dapp::{
     components::{AppBar, ContentContainer, Footer},
     contexts::NetworkConfiguration,
-    hooks::use_local_storage_provider,
     pages::{Basics, Home},
-    wallets,
+    wallets::{self, hooks::use_local_storage_provider},
 };
 use dioxus_router::{Route, Router};
 
