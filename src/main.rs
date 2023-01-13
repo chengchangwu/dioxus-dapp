@@ -3,9 +3,7 @@
 use dioxus::prelude::*;
 use dioxus_dapp::{
     components::{AppBar, ContentContainer, Footer},
-    pages::Basics,
-    views::home::HomeView,
-    Package, Wallet,
+    pages::{Basics, Home},
 };
 use dioxus_router::{Route, Router};
 
@@ -40,7 +38,7 @@ fn app(cx: Scope) -> Element {
                 ContentContainer {
                     Route {
                         to: "/",
-                        self::homepage {}
+                        self::home{}
                     }
                     Route {
                         to: "/basics",
@@ -53,14 +51,9 @@ fn app(cx: Scope) -> Element {
     })
 }
 
-fn homepage(cx: Scope) -> Element {
-    let pkg = Package { version: "0.1.0" };
-    let wallet = Wallet { balance: 0 };
+fn home(cx: Scope) -> Element {
     cx.render(rsx! {
-        HomeView {
-            pkg: pkg,
-            wallet: wallet,
-        }
+        Home {}
     })
 }
 

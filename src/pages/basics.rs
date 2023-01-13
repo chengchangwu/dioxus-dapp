@@ -15,8 +15,7 @@ pub fn Basics(cx: Scope) -> Element {
             //         content: "Basic Functionality",
             //     }
             // }
-            BasicsView {
-            }
+            BasicsView {}
         }
     })
 }
