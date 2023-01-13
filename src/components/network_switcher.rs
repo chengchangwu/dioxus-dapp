@@ -1,10 +1,10 @@
+use crate::contexts::NetworkConfiguration;
 use dioxus::prelude::*;
 
 #[allow(non_snake_case)]
 pub fn NetworkSwitcher(cx: Scope) -> Element {
-    // TODO
-    // const { networkConfiguration, setNetworkConfiguration } = useNetworkConfiguration();
-    // console.log(networkConfiguration);
+    let network_configuration = use_shared_state::<NetworkConfiguration>(cx).unwrap();
+    log::debug!("network configuration {}", network_configuration.read().0);
     cx.render(rsx! {
         label {
             class: "cursor-pointer label",
@@ -13,9 +13,8 @@ pub fn NetworkSwitcher(cx: Scope) -> Element {
             }
             select {
                 class: "select max-w-xs",
-                // TODO:
-                // value: "{networkConfiguration}",
-                // onChange={(e) => setNetworkConfiguration(e.target.value)}
+                value: "{network_configuration.read().0}",
+                onchange: move |evt| { network_configuration.write().0 = evt.value.clone(); },
                 option {
                     value: "mainnet-beta",
                     "main"

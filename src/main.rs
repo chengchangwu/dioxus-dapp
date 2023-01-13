@@ -3,6 +3,7 @@
 use dioxus::prelude::*;
 use dioxus_dapp::{
     components::{AppBar, ContentContainer, Footer},
+    contexts::NetworkConfiguration,
     pages::{Basics, Home},
 };
 use dioxus_router::{Route, Router};
@@ -27,6 +28,7 @@ fn main() {
 
 // create a component that renders a div with the text "Hello, world!"
 fn app(cx: Scope) -> Element {
+    use_shared_state_provider(cx, || NetworkConfiguration("devnet".to_string()));
     cx.render(rsx! {
         style {
             STYLES
