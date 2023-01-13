@@ -22,7 +22,7 @@ dioxus-router = { version = "0.3.0", features = ["web"] }
 [dependencies.web-sys]
 version = "0.3.4"
 features = [
-  'Window',
+  'Window','Storage'
 ]
 
 [dev-dependencies]
