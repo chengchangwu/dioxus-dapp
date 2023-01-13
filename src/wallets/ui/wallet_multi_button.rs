@@ -26,7 +26,7 @@ pub fn WalletMultiButton(cx: Scope) -> Element {
                 aria_expanded: "{aria_expanded}",
                 class: "wallet-adapter-button-trigger",
                 style: "{button_style}",
-                onclick: move |_| { *active.make_mut() = true },
+                onclick: move |_| { active.with_mut(|v| *v = true) },
                 // start_icon: {<WalletIcon wallet={wallet} />}
                 // {...props}
                 // {content}
