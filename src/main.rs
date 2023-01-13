@@ -4,6 +4,7 @@ use dioxus::prelude::*;
 use dioxus_dapp::{
     components::{AppBar, ContentContainer, Footer},
     contexts::NetworkConfiguration,
+    hooks::use_local_storage_provider,
     pages::{Basics, Home},
     wallets,
 };
@@ -29,7 +30,7 @@ fn main() {
 
 // create a component that renders a div with the text "Hello, world!"
 fn app(cx: Scope) -> Element {
-    use_shared_state_provider(cx, || NetworkConfiguration("devnet".to_string()));
+    use_local_storage_provider(cx, || NetworkConfiguration("devnet".to_string()));
     cx.render(rsx! {
         style {
             STYLES

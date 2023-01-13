@@ -1,9 +1,9 @@
-use crate::contexts::NetworkConfiguration;
+use crate::{contexts::NetworkConfiguration, hooks::use_local_storage};
 use dioxus::prelude::*;
 
 #[allow(non_snake_case)]
 pub fn NetworkSwitcher(cx: Scope) -> Element {
-    let network_configuration = use_shared_state::<NetworkConfiguration>(cx).unwrap();
+    let network_configuration = use_local_storage::<NetworkConfiguration>(cx).unwrap();
     log::debug!("network configuration {}", network_configuration.read().0);
     cx.render(rsx! {
         label {
