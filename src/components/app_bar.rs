@@ -1,11 +1,11 @@
-use crate::{components::NetworkSwitcher, wallets};
+use crate::{components::NetworkSwitcher, wallets::hooks::use_local_storage};
 use dioxus::prelude::*;
 use dioxus_router::Link;
 
 #[allow(non_snake_case)]
 pub fn AppBar(cx: Scope) -> Element {
     // TODO: use_local_storage instread of use_state?
-    let auto_connect = use_state(&cx, || false);
+    let auto_connect = use_local_storage(&cx, "autoConnect", false);
     cx.render(rsx! {
         // NavBar / Header
         div {
