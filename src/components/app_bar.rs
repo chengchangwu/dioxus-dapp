@@ -1,4 +1,7 @@
-use crate::{components::NetworkSwitcher, wallets::hooks::use_local_storage};
+use crate::{
+    components::NetworkSwitcher,
+    wallets::{self, hooks::use_local_storage},
+};
 use dioxus::prelude::*;
 use dioxus_router::Link;
 
@@ -132,10 +135,10 @@ pub fn AppBar(cx: Scope) -> Element {
             // // Wallet & Settings
             div {
                 class: "navbar-end",
-            //     wallets::ui::WalletMultiButton {
-            //         // TODO
-            //         // class: "btn btn-ghost mr-4",
-            //     }
+                wallets::ui::WalletMultiButton {
+                    // TODO
+                    // class: "btn btn-ghost mr-4",
+                }
                 div {
                     class: "dropdown dropdown-end",
                     div {

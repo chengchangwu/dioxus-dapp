@@ -23,19 +23,19 @@ pub fn WalletMultiButton(cx: Scope) -> Element {
         div {
             class: "wallet-adapter-dropdown",
             button {
-                aria_expanded: "{aria_expanded}",
+                // aria_expanded: "{aria_expanded}",
                 class: "wallet-adapter-button-trigger",
                 style: "{button_style}",
                 onclick: move |_| { active.with_mut(|v| *v = true) },
-                // start_icon: {<WalletIcon wallet={wallet} />}
-                // {...props}
-                // {content}
+        //         // start_icon: {<WalletIcon wallet={wallet} />}
+        //         // {...props}
+        //         // {content}
             }
             ul {
                 aria_label: "dropdown-list",
                 // class: {`wallet-adapter-dropdown-list ${active && 'wallet-adapter-dropdown-list-active'}`},
                 // ref: {ref},
-                role: "menu",
+        //         role: "menu",
                 li {
                     onclick: |_| { /* TODO: copyAddress */ },
                     class: "wallet-adapter-dropdown-list-item",
