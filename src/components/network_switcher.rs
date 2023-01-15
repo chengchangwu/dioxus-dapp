@@ -1,10 +1,10 @@
-use crate::{contexts::NetworkConfiguration, wallets::hooks::use_local_storage};
+use crate::wallets::hooks::use_local_storage;
 use dioxus::prelude::*;
 
 #[allow(non_snake_case)]
 pub fn NetworkSwitcher(cx: Scope) -> Element {
-    let network_configuration = use_local_storage::<NetworkConfiguration>(cx).unwrap();
-    log::debug!("network configuration {}", network_configuration.read().0);
+    let network_configuration = use_local_storage::<String>(cx, "network", "devnet".to_string());
+    log::debug!("network configuration {}", network_configuration.current());
     cx.render(rsx! {
         label {
             class: "cursor-pointer label",
@@ -13,8 +13,8 @@ pub fn NetworkSwitcher(cx: Scope) -> Element {
             }
             select {
                 class: "select max-w-xs",
-                value: "{network_configuration.read().0}",
-                onchange: move |evt| { network_configuration.write().0 = evt.value.clone(); },
+                value: "{network_configuration.current()}",
+                onchange: move |evt| { network_configuration.with_mut(|x| *x = evt.value.clone()) },
                 option {
                     value: "mainnet-beta",
                     "main"

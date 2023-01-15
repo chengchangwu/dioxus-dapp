@@ -18,6 +18,8 @@ js-sys = "0.3"
 wasm-logger = "0.2.0"
 console_error_panic_hook = { version = "0.1.7", optional = true }
 dioxus-router = { version = "0.3.0", features = ["web"] }
+serde = { version = "1.0.152", features = ["derive"] }
+ron = "0.8.0"
 
 [dependencies.web-sys]
 version = "0.3.4"
