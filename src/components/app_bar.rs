@@ -173,7 +173,7 @@ pub fn AppBar(cx: Scope) -> Element {
                                     input {
                                         "type": "checkbox",
                                         checked: "{auto_connect}",
-                                        onchange: move |_| { auto_connect.with_mut(|v| *v = false) },
+                                        onchange: move |_| { auto_connect.with_mut(|v| *v = !*v ) },
                                         class: "toggle",
                                     }
                                 }
