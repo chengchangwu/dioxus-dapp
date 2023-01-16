@@ -7,7 +7,6 @@ pub fn WalletMultiButton(cx: Scope) -> Element {
     // TODO
     let copied = use_state(&cx, || false);
     let active = use_state(&cx, || false);
-    let aria_expanded = if **active { "true" } else { "false" };
     let button_style = format!("pointerEvents: {}", if **active { "none" } else { "auto" },);
     let detected = use_state(&cx, || {
         window()
@@ -16,14 +15,12 @@ pub fn WalletMultiButton(cx: Scope) -> Element {
             .and_then(|s| s.is_brave_wallet().then_some(true))
             .is_some()
     });
+    log::debug!("detected wallet? {detected}, active? {active}");
     cx.render(rsx! {
-        div {
-            "detected wallet? {detected}"
-        }
         div {
             class: "wallet-adapter-dropdown",
             button {
-                // aria_expanded: "{aria_expanded}",
+                // aria_expanded: active,
                 class: "wallet-adapter-button-trigger",
                 style: "{button_style}",
                 onclick: move |_| { active.with_mut(|v| *v = true) },
@@ -32,7 +29,7 @@ pub fn WalletMultiButton(cx: Scope) -> Element {
         //         // {content}
             }
             ul {
-                aria_label: "dropdown-list",
+                // aria_label: "dropdown-list",
                 // class: {`wallet-adapter-dropdown-list ${active && 'wallet-adapter-dropdown-list-active'}`},
                 // ref: {ref},
         //         role: "menu",
