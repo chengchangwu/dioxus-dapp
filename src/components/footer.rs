@@ -26,7 +26,7 @@ pub fn Footer(cx: Scope) -> Element {
                                 y1: "90.0973",
                                 x2: "88.9933",
                                 y2: "-3.01622",
-                                gradientUnits: "userSpaceOnUse",
+                                "gradient_units": "userSpaceOnUse",
                                 stop {
                                     offset: "0.08",
                                     "stop-color": "#9945FF",

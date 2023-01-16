@@ -77,7 +77,7 @@ pub fn AppBar(cx: Scope) -> Element {
                                 y1: "98.29",
                                 x2: "98.89",
                                 y2: "-1.01005",
-                                gradientUnits: "userSpaceOnUse",
+                                "gradient_units": "userSpaceOnUse",
                                 stop {
                                     offset: "0.08",
                                     "stop-color": "#9945FF",
@@ -121,13 +121,13 @@ pub fn AppBar(cx: Scope) -> Element {
                 div {
                     class: "flex items-stretch",
                     Link {
-                        class: "btn btn-ghost btn-sm rounded-btn",
                         to: "/",
+                        class: "btn btn-ghost btn-sm rounded-btn",
                         "Home"
                     }
                     Link {
-                        class: "btn btn-ghost btn-sm rounded-btn",
                         to: "/basics",
+                        class: "btn btn-ghost btn-sm rounded-btn",
                         "Basics"
                     }
                 }
