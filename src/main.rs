@@ -9,6 +9,7 @@ use dioxus_dapp::{
 use dioxus_router::{Route, Router};
 
 static STYLES: &'static str = include_str!("../output.css");
+static WALLET_STYLES: &'static str = include_str!("../wallet-styles.css");
 
 fn main() {
     wasm_logger::init(wasm_logger::Config::default());
@@ -31,6 +32,9 @@ fn app(cx: Scope) -> Element {
     cx.render(rsx! {
         style {
             STYLES
+        }
+        style {
+            WALLET_STYLES
         }
         Router {
             div {

@@ -7,6 +7,11 @@ pub fn WalletMultiButton(cx: Scope) -> Element {
     // TODO
     let copied = use_state(&cx, || false);
     let active = use_state(&cx, || false);
+    let wallet_adapter_dropdown_list_active = if *active.current() {
+        "wallet-adapter-dropdown-list-active"
+    } else {
+        ""
+    };
     let button_style = format!("pointerEvents: {}", if **active { "none" } else { "auto" },);
     let detected = use_state(&cx, || {
         window()
@@ -30,25 +35,25 @@ pub fn WalletMultiButton(cx: Scope) -> Element {
             }
             ul {
                 // aria_label: "dropdown-list",
-                // class: {`wallet-adapter-dropdown-list ${active && 'wallet-adapter-dropdown-list-active'}`},
+                class: "wallet-adapter-dropdown-list {wallet_adapter_dropdown_list_active}",
                 // ref: {ref},
         //         role: "menu",
                 li {
                     onclick: |_| { /* TODO: copyAddress */ },
                     class: "wallet-adapter-dropdown-list-item",
-                    role: "menuitem",
+                    // role: "menuitem",
                     copied.then(|| "Copied").or(Some("Copy address"))
                 }
                 li {
                     onclick: |_| { /* TODO: openModal */ },
                     class: "wallet-adapter-dropdown-list-item",
-                    role: "menuitem",
+                    // role: "menuitem",
                     "Change wallet"
                 }
                 li {
                     onclick: |_| { /* TODO: disconnect */ },
                     class: "wallet-adapter-dropdown-list-item",
-                    role: "menuitem",
+                    // role: "menuitem",
                     "Disconnect"
                 }
             }
