@@ -1,10 +1,15 @@
 use dioxus::prelude::*;
 
-use crate::wallets::window;
+use crate::wallets::{hooks::use_wallet, ui::WalletModalButton, window};
 
+#[derive(Props)]
+pub struct WalletMultiButton<'a> {
+    children: Element<'a>,
+}
 #[allow(non_snake_case)]
-pub fn WalletMultiButton(cx: Scope) -> Element {
+pub fn WalletMultiButton<'a>(cx: Scope<'a, WalletMultiButton<'a>>) -> Element<'a> {
     // TODO
+    let (public_key, wallet, disconnect) = use_wallet();
     let copied = use_state(&cx, || false);
     let active = use_state(&cx, || false);
     let wallet_adapter_dropdown_list_active = if *active.current() {
@@ -21,6 +26,13 @@ pub fn WalletMultiButton(cx: Scope) -> Element {
             .is_some()
     });
     log::debug!("detected wallet? {detected}, active? {active}");
+    if wallet.is_none() {
+        return cx.render(rsx! {
+            WalletModalButton { &cx.props.children }
+        });
+    };
+    // TODO
+    // if (!base58) return <WalletConnectButton {...props}>{children}</WalletConnectButton>;
     cx.render(rsx! {
         div {
             class: "wallet-adapter-dropdown",
