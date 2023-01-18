@@ -10,3 +10,7 @@ npx tailwindcss -i ./input.css -o ./output.css --watch
 
 dioxus serve
 ```
+
+## Screenshot
+
+![image info](./screenshot.png)
