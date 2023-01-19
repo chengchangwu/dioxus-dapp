@@ -135,10 +135,11 @@ pub fn AppBar(cx: Scope) -> Element {
             // // Wallet & Settings
             div {
                 class: "navbar-end",
-                // wallets::ui::WalletMultiButton {
-                //     // TODO
-                //     class: "btn btn-ghost mr-4",
-                // }
+                wallets::ui::WalletMultiButton {
+                    // TODO
+                    // class: "btn btn-ghost mr-4",
+                    "Select Wallet"
+                }
                 div {
                     class: "dropdown dropdown-end",
                     div {
