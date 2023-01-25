@@ -7,12 +7,13 @@ pub struct ButtonProps<'a> {
     #[props(default)]
     disabled: bool,
     #[props(optional)]
-    end_icon: Option<Element<'a>>,
+    pub end_icon: Option<Element<'a>>,
     // onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
-    start_icon: Option<Element<'a>>,
+    #[props(optional)]
+    pub start_icon: Option<Element<'a>>,
     // style?: CSSProperties;
     // tabIndex?: number;
-    children: Element<'a>,
+    pub children: Element<'a>,
 }
 
 #[allow(non_snake_case)]

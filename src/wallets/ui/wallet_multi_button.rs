@@ -1,13 +1,13 @@
 use dioxus::prelude::*;
 
-use crate::wallets::{hooks::use_wallet, ui::WalletModalButton, window};
+use crate::wallets::{
+    hooks::use_wallet,
+    ui::{ButtonProps, WalletModalButton},
+    window,
+};
 
-#[derive(Props)]
-pub struct WalletMultiButton<'a> {
-    children: Element<'a>,
-}
 #[allow(non_snake_case)]
-pub fn WalletMultiButton<'a>(cx: Scope<'a, WalletMultiButton<'a>>) -> Element<'a> {
+pub fn WalletMultiButton<'a>(cx: Scope<'a, ButtonProps<'a>>) -> Element<'a> {
     // TODO
     let (public_key, wallet, disconnect) = use_wallet();
     let copied = use_state(&cx, || false);
