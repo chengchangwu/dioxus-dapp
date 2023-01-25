@@ -1,11 +1,11 @@
 use dioxus::prelude::*;
 
-#[derive(Props)]
+#[derive(Props, Clone)]
 pub struct ButtonProps<'a> {
     #[props(default)]
-    class: &'a str,
+    pub class: &'a str,
     #[props(default)]
-    disabled: bool,
+    pub disabled: bool,
     #[props(optional)]
     pub end_icon: Option<Element<'a>>,
     // onClick?: (e: MouseEvent<HTMLButtonElement>) => void;

@@ -2,7 +2,7 @@ use dioxus::prelude::*;
 
 use crate::wallets::{
     hooks::use_wallet,
-    ui::{ButtonProps, WalletModalButton},
+    ui::{Button, ButtonProps, WalletModalButton},
     window,
 };
 
@@ -28,7 +28,7 @@ pub fn WalletMultiButton<'a>(cx: Scope<'a, ButtonProps<'a>>) -> Element<'a> {
     log::debug!("detected wallet? {detected}, active? {active}");
     if wallet.is_none() {
         return cx.render(rsx! {
-            WalletModalButton { &cx.props.children }
+            WalletModalButton { ..cx.props.clone() }
         });
     };
     // TODO
@@ -36,14 +36,15 @@ pub fn WalletMultiButton<'a>(cx: Scope<'a, ButtonProps<'a>>) -> Element<'a> {
     cx.render(rsx! {
         div {
             class: "wallet-adapter-dropdown",
-            button {
+            Button {
                 // aria_expanded: active,
                 class: "wallet-adapter-button-trigger",
-                style: "{button_style}",
-                onclick: move |_| { active.with_mut(|v| *v = true) },
-        //         // start_icon: {<WalletIcon wallet={wallet} />}
-        //         // {...props}
-        //         // {content}
+                // style: "{button_style}",
+                // onclick: move |_| { active.with_mut(|v| *v = true) },
+                // TODO: reduce fields to be cloned.
+                ..cx.props.clone(),
+                // start_icon: {<WalletIcon wallet={wallet} />}
+                // {content}
             }
             ul {
                 // aria_label: "dropdown-list",
