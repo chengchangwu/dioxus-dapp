@@ -43,7 +43,6 @@ pub fn WalletMultiButton<'a>(cx: Scope<'a, WalletMultiButtonProps<'a>>) -> Eleme
             button {
                 class: "wallet-adapter-button {cx.props.class}",
                 disabled: cx.props.disabled,
-                // style={props.style}
                 // tabIndex={props.tabIndex || 0}
                 r#type: "button",
                 // start_icon,
@@ -60,7 +59,7 @@ pub fn WalletMultiButton<'a>(cx: Scope<'a, WalletMultiButtonProps<'a>>) -> Eleme
             button {
                 // aria_expanded: active,
                 class: "wallet-adapter-button-trigger",
-                // style: "{button_style}",
+                style: "{button_style}",
                 onclick: move |_| { active.with_mut(|v| *v = true) },
                 i {
                     class: "wallet-adapter-button-start-icon",
