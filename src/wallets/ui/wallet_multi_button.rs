@@ -1,13 +1,24 @@
 use dioxus::prelude::*;
 
-use crate::wallets::{
-    hooks::use_wallet,
-    ui::{Button, ButtonProps, WalletModalButton},
-    window,
-};
+use crate::wallets::{hooks::use_wallet, window};
+
+#[derive(Props)]
+pub struct WalletMultiButtonProps<'a> {
+    #[props(default)]
+    pub class: &'a str,
+    #[props(default)]
+    pub disabled: bool,
+    #[props(optional)]
+    pub end_icon: Option<Element<'a>>,
+    #[props(optional)]
+    pub start_icon: Option<Element<'a>>,
+    // style?: CSSProperties;
+    // tabIndex?: number;
+    pub children: Element<'a>,
+}
 
 #[allow(non_snake_case)]
-pub fn WalletMultiButton<'a>(cx: Scope<'a, ButtonProps<'a>>) -> Element<'a> {
+pub fn WalletMultiButton<'a>(cx: Scope<'a, WalletMultiButtonProps<'a>>) -> Element<'a> {
     // TODO
     let (public_key, wallet, disconnect) = use_wallet();
     let copied = use_state(&cx, || false);
@@ -28,7 +39,17 @@ pub fn WalletMultiButton<'a>(cx: Scope<'a, ButtonProps<'a>>) -> Element<'a> {
     log::debug!("detected wallet? {detected}, active? {active}");
     if wallet.is_none() {
         return cx.render(rsx! {
-            WalletModalButton { ..cx.props.clone() }
+            // WalletModalButton { ..cx.props.clone() }
+            button {
+                class: "wallet-adapter-button {cx.props.class}",
+                disabled: cx.props.disabled,
+                // style={props.style}
+                // tabIndex={props.tabIndex || 0}
+                r#type: "button",
+                // start_icon,
+                &cx.props.children,
+                // end_icon
+            }
         });
     };
     // TODO
@@ -36,14 +57,15 @@ pub fn WalletMultiButton<'a>(cx: Scope<'a, ButtonProps<'a>>) -> Element<'a> {
     cx.render(rsx! {
         div {
             class: "wallet-adapter-dropdown",
-            Button {
+            button {
                 // aria_expanded: active,
                 class: "wallet-adapter-button-trigger",
                 // style: "{button_style}",
-                // onclick: move |_| { active.with_mut(|v| *v = true) },
-                // TODO: reduce fields to be cloned.
-                ..cx.props.clone(),
-                // start_icon: {<WalletIcon wallet={wallet} />}
+                onclick: move |_| { active.with_mut(|v| *v = true) },
+                i {
+                    class: "wallet-adapter-button-start-icon",
+                    // <WalletIcon wallet={wallet} />
+                }
                 // {content}
             }
             ul {
