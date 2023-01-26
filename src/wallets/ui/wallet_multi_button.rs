@@ -43,7 +43,7 @@ pub fn WalletMultiButton<'a>(cx: Scope<'a, WalletMultiButtonProps<'a>>) -> Eleme
             button {
                 class: "wallet-adapter-button {cx.props.class}",
                 disabled: cx.props.disabled,
-                // tabIndex={props.tabIndex || 0}
+                tabindex: 0,
                 r#type: "button",
                 // start_icon,
                 &cx.props.children,
