@@ -35,7 +35,7 @@ pub fn WalletMultiButton<'a>(cx: Scope<'a, WalletMultiButtonProps<'a>>) -> Eleme
         window()
             .expect("No window object")
             .solana()
-            .and_then(|s| s.is_phantom().then_some(true))
+            .and_then(|s| s.is_brave_wallet().then_some(true))
             .is_some()
     });
     log::debug!("detected wallet? {detected}, active? {active}");
