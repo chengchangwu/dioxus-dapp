@@ -12,6 +12,8 @@ pub struct WalletMultiButtonProps<'a> {
     pub end_icon: Option<Element<'a>>,
     #[props(optional)]
     pub start_icon: Option<Element<'a>>,
+    #[props(optional)]
+    pub onclick: Option<EventHandler<'a, MouseEvent>>,
     // style?: CSSProperties;
     // tabIndex?: number;
     pub children: Element<'a>,
@@ -45,6 +47,8 @@ pub fn WalletMultiButton<'a>(cx: Scope<'a, WalletMultiButtonProps<'a>>) -> Eleme
                 disabled: cx.props.disabled,
                 tabindex: 0,
                 r#type: "button",
+                onclick: |ev| (&cx.props.onclick).as_ref().map_or((), |f| { f.call(ev); }),
+
                 // start_icon,
                 &cx.props.children,
                 // end_icon
