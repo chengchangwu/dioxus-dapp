@@ -31,8 +31,6 @@ extern "C" {
     pub type Solana;
     #[wasm_bindgen (structural, method, getter, js_class = "Window", js_name = solana)]
     pub fn solana(this: &Window) -> Option<Solana>;
-    #[wasm_bindgen (structural, method, getter, js_class = "Solano", js_name = isBraveWallet)]
-    pub fn is_brave_wallet(this: &Solana) -> bool;
     #[wasm_bindgen (structural, method, getter, js_class = "Solano", js_name = isPhantom)]
     pub fn is_phantom(this: &Solana) -> bool;
     #[wasm_bindgen (structural, method, getter, js_class = "Solano", js_name = isConnected)]

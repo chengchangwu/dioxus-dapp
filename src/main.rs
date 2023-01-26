@@ -17,10 +17,9 @@ fn main() {
     log::info!("Solana {solana:?}");
     if let Some(s) = solana {
         log::info!(
-            "solana connected {}, is_phantom {}, is_brave_wallet {}",
+            "solana connected {}, is_phantom {}",
             s.is_connected(),
             s.is_phantom(),
-            s.is_brave_wallet(),
         );
     }
     dioxus_web::launch(app);
