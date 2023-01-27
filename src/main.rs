@@ -4,7 +4,7 @@ use dioxus::prelude::*;
 use dioxus_dapp::{
     components::{AppBar, ContentContainer, Footer},
     pages::{Basics, Home},
-    wallets,
+    wallets::{self, hooks::use_wallet_provider},
 };
 use dioxus_router::{Route, Router};
 
@@ -28,6 +28,7 @@ fn main() {
 
 // create a component that renders a div with the text "Hello, world!"
 fn app(cx: Scope) -> Element {
+    use_wallet_provider(&cx);
     cx.render(rsx! {
         style {
             STYLES

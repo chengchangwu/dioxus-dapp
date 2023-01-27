@@ -22,7 +22,7 @@ pub struct WalletMultiButtonProps<'a> {
 #[allow(non_snake_case)]
 pub fn WalletMultiButton<'a>(cx: Scope<'a, WalletMultiButtonProps<'a>>) -> Element<'a> {
     // TODO
-    let (public_key, wallet, disconnect) = use_wallet();
+    let wallet_state = use_wallet(&cx).unwrap();
     let copied = use_state(&cx, || false);
     let active = use_state(&cx, || false);
     let wallet_adapter_dropdown_list_active = if *active.current() {
@@ -39,7 +39,7 @@ pub fn WalletMultiButton<'a>(cx: Scope<'a, WalletMultiButtonProps<'a>>) -> Eleme
             .is_some()
     });
     log::debug!("detected wallet? {detected}, active? {active}");
-    if wallet.is_none() {
+    if wallet_state.read().wallet.is_none() {
         return cx.render(rsx! {
             // WalletModalButton { ..cx.props.clone() }
             button {
