@@ -5,7 +5,7 @@ use web_sys::{EventTarget, Storage};
 pub mod adapters;
 pub mod hooks;
 pub mod ui;
-pub mod web3;
+// pub mod web3;
 
 #[wasm_bindgen]
 extern "C" {

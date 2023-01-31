@@ -2,11 +2,11 @@
 
 use wasm_bindgen::{prelude::wasm_bindgen, JsValue};
 
-#[wasm_bindgen(module = "/node_modules/@solana/wallet-adapter-brave/lib/cjs/adapter.js")]
+#[wasm_bindgen(module = "/ts/node_modules/@solana/wallet-adapter-brave/lib/esm/adapter.js")]
 extern "C" {
-    type BraveWalletAdapter;
+    pub type BraveWalletAdapter;
     #[wasm_bindgen(constructor)]
-    fn new() -> BraveWalletAdapter;
+    pub fn new() -> BraveWalletAdapter;
     // TODO
     // #[wasm_bindgen(method, getter)]
     // fn publicKey(this: &BraveWalletAdapter) -> PublicKey;
