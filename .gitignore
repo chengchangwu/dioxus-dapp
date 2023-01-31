@@ -1,7 +1,9 @@
 /target
 /Cargo.lock
 /dist
-/node_modules
+/ts/node_modules
 /output.css
-/package-lock.json
+/ts/package-lock.json
 /pkg
+ts/dist/bundle.js
+ts/dist
