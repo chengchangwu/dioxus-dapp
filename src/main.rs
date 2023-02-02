@@ -4,7 +4,7 @@ use dioxus::prelude::*;
 use dioxus_dapp::{
     components::{AppBar, ContentContainer, Footer},
     pages::{Basics, Home},
-    wallets::{self, adapters::brave::BraveWalletAdapter, hooks::use_wallet_provider},
+    wallets::{self, hooks::use_wallet_provider},
 };
 use dioxus_router::{Route, Router};
 
@@ -23,7 +23,6 @@ fn main() {
             s.is_brave_wallet(),
         );
     }
-    let brave = BraveWalletAdapter::new();
     dioxus_web::launch(app);
 }
 
